@@ -2,7 +2,7 @@ function calculateScore(){
 
 let score = 0;
 
-const name = document.getElementById("name").value;
+<h2>Hello ${name || "Friend"}! 👋</h2>
 
 const age = document.getElementById("age").value;
 const travel = document.getElementById("travel").value;
