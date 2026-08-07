@@ -44,7 +44,7 @@ Answer a few quick questions to discover your Carbon Footprint Score and learn h
 
 </p>
 
-<form id="carbonForm" onsubmit="return false;">
+<form id="carbonForm" onkeydown="if(event.key === 'Enter') event.preventDefault();">
 
 <label>Your Name</label>
 <input type="text" id="name">
