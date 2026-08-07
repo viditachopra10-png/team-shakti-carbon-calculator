@@ -70,36 +70,31 @@ label{
 
 input,
 select{
+    width:100%;
+    padding:14px;
+    border-radius:14px;
+    border:2px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.15);
+    color:white;
+    font-size:16px;
+    margin-bottom:8px;
+    transition:.3s;
+}
 
-width:100%;
+select option{
+    background:#ffffff;
+    color:#123c35;
+}
 
-padding:14px;
-
-border-radius:14px;
-
-border:2px solid rgba(255,255,255,.2);
-
-background:rgba(255,255,255,.15);
-
-color:white;
-
-font-size:16px;
-
-margin-bottom:8px;
-
-transition:.3s;
-
+input::placeholder{
+    color:rgba(255,255,255,.7);
 }
 
 input:focus,
 select:focus{
-
-outline:none;
-
-border-color:#00d26a;
-
-box-shadow:0 0 18px rgba(0,210,106,.4);
-
+    outline:none;
+    border-color:#00d26a;
+    box-shadow:0 0 18px rgba(0,210,106,.4);
 }
 
 button{
@@ -183,5 +178,66 @@ transform:translateY(-15px) rotate(8deg);
 100%{
 transform:translateY(0px) rotate(0deg);
 }
+
+}
+
+/* 📱 MOBILE VERSION */
+
+@media (max-width:600px){
+
+    body{
+        padding:15px;
+        align-items:flex-start;
+    }
+
+    .container{
+        width:100%;
+        padding:24px 18px;
+        margin-top:20px;
+        border-radius:24px;
+    }
+
+    header h1{
+        font-size:34px;
+    }
+
+    header p{
+        font-size:17px;
+    }
+
+    .intro{
+        font-size:15px;
+    }
+
+    h2{
+        font-size:21px;
+    }
+
+    label{
+        font-size:15px;
+    }
+
+    input,
+    select{
+        font-size:15px;
+        padding:13px;
+    }
+
+    button{
+        font-size:17px;
+        padding:16px;
+    }
+
+    .earth-container{
+        position:relative;
+        top:auto;
+        right:auto;
+        text-align:center;
+        margin-bottom:5px;
+    }
+
+    .earth{
+        font-size:55px;
+    }
 
 }
