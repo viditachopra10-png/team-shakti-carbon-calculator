@@ -152,3 +152,34 @@ text-align:center;
 animation:fadeUp .8s;
 
 }
+
+/* Floating Earth */
+
+.earth-container{
+    position:fixed;
+    top:30px;
+    right:30px;
+    z-index:1000;
+}
+
+.earth{
+    font-size:70px;
+    animation:floatEarth 4s ease-in-out infinite;
+    filter:drop-shadow(0 0 20px rgba(255,255,255,.4));
+}
+
+@keyframes floatEarth{
+
+0%{
+transform:translateY(0px) rotate(0deg);
+}
+
+50%{
+transform:translateY(-15px) rotate(8deg);
+}
+
+100%{
+transform:translateY(0px) rotate(0deg);
+}
+
+}
