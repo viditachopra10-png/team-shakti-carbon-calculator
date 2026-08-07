@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Team Shakti | Carbon Footprint Calculator</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🌍 Team Shakti</h1>
+
+<p>Carbon Footprint Calculator</p>
+
+</header>
+
+<div class="container">
+
+<h2>Are You Helping the Planet, or Hurting It?</h2>
+
+<p class="intro">
+
+Answer a few quick questions to discover your Carbon Footprint Score and learn how your choices impact our planet.
+
+</p>
+
+<form id="carbonForm">
+
+<label>Your Name</label>
+<input type="text" id="name">
+
+<label>Your Age</label>
+<select id="age">
+<option>Under 12</option>
+<option>13-18</option>
+<option>Adult</option>
+</select>
+
+<label>How do you usually travel?</label>
+<select id="travel">
+<option>Walk</option>
+<option>Bicycle</option>
+<option>School Bus</option>
+<option>Metro</option>
+<option>Bike</option>
+<option>Car</option>
+</select>
+
+<label>How many kilometers do you travel daily?</label>
+<select id="distance">
+<option>0-5 km</option>
+<option>5-15 km</option>
+<option>15-30 km</option>
+<option>More than 30 km</option>
+</select>
+
+<label>How many ACs are used in your home?</label>
+<select id="acs">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+</select>
+
+<label>Average AC usage in a day</label>
+<select id="acusage">
+<option>0-2 hours</option>
+<option>2-5 hours</option>
+<option>5-8 hours</option>
+<option>8+ hours</option>
+</select>
+
+<label>Monthly Electricity Usage</label>
+<select id="electricity">
+<option>Less than 100 units</option>
+<option>100-250 units</option>
+<option>250-500 units</option>
+<option>More than 500 units</option>
+</select>
+
+<label>Diesel Generator Usage</label>
+<select id="generator">
+<option>Never</option>
+<option>Sometimes</option>
+<option>Frequently</option>
+<option>Daily</option>
+</select>
+
+<label>How often do you plant trees?</label>
+<select id="trees">
+<option>Frequently</option>
+<option>Sometimes</option>
+<option>Once a year</option>
+<option>Never</option>
+</select>
+
+<label>Would you support converting industrial CO₂ into clean fuel?</label>
+<select id="support">
+<option>Yes</option>
+<option>Maybe</option>
+<option>No</option>
+</select>
+
+<button type="button" onclick="calculateScore()">
+
+Calculate My Carbon Footprint
+
+</button>
+
+</form>
+
+<div id="result"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
