@@ -1,266 +1,63 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-    background:linear-gradient(135deg,#0b4f6c,#1b998b,#2d6a4f);
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:40px;
-}
-
-.container{
-    width:100%;
-    max-width:900px;
-    background:rgba(255,255,255,.10);
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
-
-    border:1px solid rgba(255,255,255,.25);
-
-    border-radius:30px;
-
-    padding:45px;
-
-    color:white;
-
-    box-shadow:
-    0 20px 60px rgba(0,0,0,.35);
-
-    transition:.4s;
-}
-
-header{
-    text-align:center;
-    margin-bottom:25px;
-}
-
-header h1{
-    font-size:40px;
-    font-weight:700;
-}
-
-header p{
-    font-size:20px;
-    opacity:.9;
-}
-
-h2{
-    text-align:center;
-    margin-bottom:10px;
-}
-
-.intro{
-    text-align:center;
-    margin-bottom:25px;
-    opacity:.9;
-}
+function calculateCarbon(){
 
-label{
-    display:block;
-    margin-top:18px;
-    margin-bottom:8px;
-    font-weight:600;
-}
 
-input,
-select{
-    width:100%;
-    padding:14px;
-    border-radius:14px;
-    border:2px solid rgba(255,255,255,.2);
-    background:rgba(255,255,255,.15);
-    color:white;
-    font-size:16px;
-    margin-bottom:8px;
-    transition:.3s;
-}
+let travel =
+Number(document.getElementById("travel").value);
 
-select option{
-    background:#ffffff;
-    color:#123c35;
-}
 
-input::placeholder{
-    color:rgba(255,255,255,.7);
-}
+let electricity =
+Number(document.getElementById("electricity").value || 0);
 
-input:focus,
-select:focus{
-    outline:none;
-    border-color:#00d26a;
-    box-shadow:0 0 18px rgba(0,210,106,.4);
-}
 
-select option{
-    background:#ffffff;
-    color:#123c35;
-}
+let ac =
+Number(document.getElementById("ac").value || 0);
 
-input::placeholder{
-    color:rgba(255,255,255,.7);
-}
 
-input:focus,
-select:focus{
-    outline:none;
-    border-color:#00d26a;
-    box-shadow:0 0 18px rgba(0,210,106,.4);
-}
+let fuel =
+Number(document.getElementById("fuel").value);
 
-input:focus,
-select:focus{
 
-outline:none;
+let generator =
+Number(document.getElementById("generator").value);
 
-border-color:#00d26a;
 
-box-shadow:0 0 18px rgba(0,210,106,.4);
 
-}
+let total =
+travel +
+(electricity * 5) +
+(ac * 10) +
+fuel +
+generator;
 
-button{
-    width:100%;
-    margin-top:35px;
-    padding:18px;
 
-    border:none;
 
-    border-radius:18px;
+let resultBox =
+document.getElementById("result");
 
-    background:linear-gradient(90deg,#00d26a,#00b894);
 
-    color:white;
 
-    font-size:20px;
+resultBox.style.display="block";
 
-    font-weight:700;
 
-    cursor:pointer;
+resultBox.innerHTML = `
 
-    transition:.35s;
-}
+<h2>🌍 Your Carbon Footprint</h2>
 
-button:hover{
+<p>
+Your estimated household carbon emission is:
+</p>
 
-transform:
-translateY(-4px)
-scale(1.02);
+<h1>${total} kg CO₂/month</h1>
 
-box-shadow:
-0 20px 45px rgba(0,210,106,.55);
 
-}
+<p>
+Small actions create big changes! 🌱
+<br>
+Try saving electricity, using public transport and choosing cleaner energy.
+</p>
 
-#result{
+`;
 
-margin-top:40px;
 
-padding:30px;
-
-border-radius:25px;
-
-background:rgba(255,255,255,.15);
-
-backdrop-filter:blur(10px);
-
-text-align:center;
-
-animation:fadeUp .8s;
-
-}
-
-/* Floating Earth */
-
-.earth-container{
-    position:fixed;
-    top:30px;
-    right:30px;
-    z-index:1000;
-}
-
-.earth{
-    font-size:70px;
-    animation:floatEarth 4s ease-in-out infinite;
-    filter:drop-shadow(0 0 20px rgba(255,255,255,.4));
-}
-
-@keyframes floatEarth{
-
-0%{
-transform:translateY(0px) rotate(0deg);
-}
-
-50%{
-transform:translateY(-15px) rotate(8deg);
-}
-
-100%{
-transform:translateY(0px) rotate(0deg);
-}
-
-    /* 📱 MOBILE VERSION */
-
-@media (max-width:600px){
-
-    body{
-        padding:15px;
-        align-items:flex-start;
-    }
-
-    .container{
-        width:100%;
-        padding:24px 18px;
-        margin-top:20px;
-        border-radius:24px;
-    }
-
-    header h1{
-        font-size:34px;
-    }
-
-    header p{
-        font-size:17px;
-    }
-
-    .intro{
-        font-size:15px;
-    }
-
-    h2{
-        font-size:21px;
-    }
-
-    label{
-        font-size:15px;
-    }
-
-    input,
-    select{
-        font-size:15px;
-        padding:13px;
-    }
-
-    button{
-        font-size:17px;
-        padding:16px;
-    }
-
-    .earth-container{
-        position:relative;
-        top:auto;
-        right:auto;
-        text-align:center;
-        margin-bottom:5px;
-    }
-
-    .earth{
-        font-size:55px;
-    }
 
 }
