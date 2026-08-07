@@ -1,127 +1,185 @@
-function calculateScore(){
-
-let score = 0;
-
-<h2>Hello ${name || "Friend"}! 👋</h2>
-
-const age = document.getElementById("age").value;
-const travel = document.getElementById("travel").value;
-const distance = document.getElementById("distance").value;
-const acs = document.getElementById("acs").value;
-const acusage = document.getElementById("acusage").value;
-const electricity = document.getElementById("electricity").value;
-const generator = document.getElementById("generator").value;
-const trees = document.getElementById("trees").value;
-const support = document.getElementById("support").value;
-
-/* AGE */
-
-if(age=="Under 12") score+=5;
-if(age=="13-18") score+=8;
-if(age=="Adult") score+=10;
-
-/* TRAVEL */
-
-if(travel=="Walk") score+=0;
-if(travel=="Bicycle") score+=2;
-if(travel=="School Bus") score+=5;
-if(travel=="Metro") score+=6;
-if(travel=="Bike") score+=15;
-if(travel=="Car") score+=20;
-
-/* DISTANCE */
-
-if(distance=="0-5 km") score+=2;
-if(distance=="5-15 km") score+=8;
-if(distance=="15-30 km") score+=15;
-if(distance=="More than 30 km") score+=25;
-
-/* ACS */
-
-score += (parseInt(acs)-1)*5+5;
-
-/* AC USAGE */
-
-if(acusage=="0-2 hours") score+=2;
-if(acusage=="2-5 hours") score+=8;
-if(acusage=="5-8 hours") score+=15;
-if(acusage=="8+ hours") score+=25;
-
-/* ELECTRICITY */
-
-if(electricity=="Less than 100 units") score+=5;
-if(electricity=="100-250 units") score+=10;
-if(electricity=="250-500 units") score+=20;
-if(electricity=="More than 500 units") score+=30;
-
-/* GENERATOR */
-
-if(generator=="Never") score+=0;
-if(generator=="Sometimes") score+=10;
-if(generator=="Frequently") score+=20;
-if(generator=="Daily") score+=35;
-
-/* TREES */
-
-if(trees=="Frequently") score+=0;
-if(trees=="Sometimes") score+=5;
-if(trees=="Once a year") score+=10;
-if(trees=="Never") score+=20;
-
-/* SUPPORT */
-
-if(support=="Maybe") score+=5;
-if(support=="No") score+=10;
-
-let level="";
-let color="";
-let advice="";
-
-if(score<=40){
-level="🌿 Low";
-color="#2ecc71";
-advice="Excellent! Keep making eco-friendly choices.";
-}
-else if(score<=70){
-level="🟡 Moderate";
-color="#f1c40f";
-advice="You're doing well! Small changes can reduce your footprint further.";
-}
-else if(score<=100){
-level="🟠 High";
-color="#e67e22";
-advice="Consider reducing AC usage, travelling sustainably, and saving electricity.";
-}
-else{
-level="🔴 Very High";
-color="#e74c3c";
-advice="Your carbon footprint is high. Small daily changes can make a big difference.";
+*{
+box-sizing:border-box;
+font-family:Arial, sans-serif;
 }
 
-document.getElementById("result").innerHTML=
-`
-<h2>Hello ${name || "Friend"}! 👋</h2>
 
-<h1 style="color:${color};">${score} Points</h1>
+body{
 
-<h2>${level}</h2>
+margin:0;
 
-<p>${advice}</p>
+min-height:100vh;
 
-<hr style="margin:20px 0;">
+display:flex;
 
-<h3>💚 Team Shakti's Mission</h3>
+justify-content:center;
 
-<p>
-Our project converts Industrial CO₂ and Seawater into Sustainable Methanol,
-helping reduce pollution while creating cleaner fuel for tomorrow.
-</p>
-`;
+align-items:center;
+
+background:linear-gradient(
+135deg,
+#d9f99d,
+#86efac
+);
+
+padding:20px;
 
 }
 
-document.getElementById("name").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        event.preventDefault();
-    }
-});
+
+
+.container{
+
+background:white;
+
+width:100%;
+
+max-width:600px;
+
+padding:30px;
+
+border-radius:25px;
+
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+
+}
+
+
+
+h1{
+
+text-align:center;
+
+color:#166534;
+
+font-size:clamp(24px,5vw,36px);
+
+}
+
+
+
+.intro{
+
+text-align:center;
+
+color:#555;
+
+margin-bottom:25px;
+
+}
+
+
+
+label{
+
+display:block;
+
+margin-top:18px;
+
+font-weight:bold;
+
+color:#14532d;
+
+}
+
+
+
+input,select{
+
+width:100%;
+
+padding:12px;
+
+margin-top:8px;
+
+border-radius:10px;
+
+border:2px solid #bbf7d0;
+
+font-size:16px;
+
+}
+
+
+
+button{
+
+width:100%;
+
+margin-top:30px;
+
+padding:15px;
+
+border:none;
+
+border-radius:15px;
+
+background:#16a34a;
+
+color:white;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+
+
+button:hover{
+
+background:#15803d;
+
+}
+
+
+
+#result{
+
+margin-top:25px;
+
+padding:20px;
+
+border-radius:15px;
+
+background:#f0fdf4;
+
+font-size:18px;
+
+text-align:center;
+
+display:none;
+
+color:#14532d;
+
+}
+
+
+
+@media(max-width:500px){
+
+.container{
+
+padding:20px;
+
+border-radius:18px;
+
+}
+
+
+h1{
+
+font-size:26px;
+
+}
+
+
+button{
+
+font-size:16px;
+
+}
+
+}
