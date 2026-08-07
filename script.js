@@ -119,3 +119,9 @@ helping reduce pollution while creating cleaner fuel for tomorrow.
 `;
 
 }
+
+document.getElementById("name").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+    }
+});
