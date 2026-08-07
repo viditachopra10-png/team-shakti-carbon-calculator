@@ -204,4 +204,63 @@ transform:translateY(-15px) rotate(8deg);
 transform:translateY(0px) rotate(0deg);
 }
 
+    /* 📱 MOBILE VERSION */
+
+@media (max-width:600px){
+
+    body{
+        padding:15px;
+        align-items:flex-start;
+    }
+
+    .container{
+        width:100%;
+        padding:24px 18px;
+        margin-top:20px;
+        border-radius:24px;
+    }
+
+    header h1{
+        font-size:34px;
+    }
+
+    header p{
+        font-size:17px;
+    }
+
+    .intro{
+        font-size:15px;
+    }
+
+    h2{
+        font-size:21px;
+    }
+
+    label{
+        font-size:15px;
+    }
+
+    input,
+    select{
+        font-size:15px;
+        padding:13px;
+    }
+
+    button{
+        font-size:17px;
+        padding:16px;
+    }
+
+    .earth-container{
+        position:relative;
+        top:auto;
+        right:auto;
+        text-align:center;
+        margin-bottom:5px;
+    }
+
+    .earth{
+        font-size:55px;
+    }
+
 }
