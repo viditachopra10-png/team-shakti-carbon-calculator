@@ -3,9 +3,6 @@
    CARBON FOOTPRINT CALCULATOR
 ================================ */
 
-
-/* ---------- GET ELEMENTS ---------- */
-
 const carbonForm = document.getElementById("carbonForm");
 
 const resultSection = document.getElementById("result");
@@ -30,74 +27,153 @@ carbonForm.addEventListener("submit", function(event) {
     event.preventDefault();
 
 
-    /* Get values */
+    /* ---------- GET ANSWERS ---------- */
+
+    const age =
+        document.getElementById("age").value;
 
     const transport =
-        Number(document.getElementById("transport").value);
+        document.getElementById("transport").value;
 
-    const electricity =
-        Number(document.getElementById("electricity").value);
+    const distance =
+        document.getElementById("distance").value;
+
+    const acCount =
+        Number(document.getElementById("acCount").value);
 
     const acHours =
         Number(document.getElementById("acHours").value);
 
+    const electricity =
+        Number(document.getElementById("electricity").value);
+
     const generator =
         Number(document.getElementById("generator").value);
 
+    const environment =
+        Number(document.getElementById("environment").value);
 
-    /* Basic validation */
+    const support =
+        document.getElementById("support").value;
+
+
+    /* ---------- VALIDATION ---------- */
 
     if (
-        document.getElementById("transport").value === "" ||
-        electricity < 0 ||
-        acHours < 0 ||
-        generator < 0
+        age === "" ||
+        transport === "" ||
+        distance === "" ||
+        acCount === 0 ||
+        acHours === 0 ||
+        electricity === 0 ||
+        generator === 0 && generator !== 0 ||
+        environment === 0 && environment !== 0 ||
+        support === ""
     ) {
 
-        alert("Please fill in all the questions.");
+        alert("Please answer all the questions.");
 
         return;
-
     }
 
 
-    /*
-       Approximate calculation.
+    /* ---------- TRANSPORT SCORE ---------- */
 
-       These are simplified educational estimates,
-       not an official household emissions calculation.
-    */
+    const transportScores = {
+
+        walk: 0,
+
+        bicycle: 5,
+
+        schoolBus: 25,
+
+        car: 80,
+
+        bike: 60,
+
+        metro: 20
+
+    };
+
+
+    const transportScore =
+        transportScores[transport];
+
+
+    /* ---------- DISTANCE SCORE ---------- */
+
+    const distanceScores = {
+
+        "0to5": 5,
+
+        "5to15": 20,
+
+        "15to30": 40,
+
+        "more30": 70
+
+    };
+
+
+    const distanceScore =
+        distanceScores[distance];
+
+
+    /* ---------- ELECTRICITY ---------- */
 
     const electricityEmission =
         electricity * 0.7;
 
 
-    const acEmission =
-        acHours * 30 * 1.2;
+    /* ---------- AC ---------- */
 
+    const acEmission =
+        acCount * acHours * 30 * 1.2;
+
+
+    /* ---------- GENERATOR ---------- */
 
     const generatorEmission =
-        generator * 2.5;
+        generator * 20;
 
 
-    const total =
-        transport +
+    /* ---------- ENVIRONMENTAL ACTION ---------- */
+
+    const environmentalReduction =
+        environment * 10;
+
+
+    /* ---------- TOTAL ---------- */
+
+    let total =
+        transportScore +
+        distanceScore +
         electricityEmission +
         acEmission +
-        generatorEmission;
+        generatorEmission -
+        environmentalReduction;
+
+
+    /*
+       Keep result positive.
+    */
+
+    if (total < 0) {
+        total = 0;
+    }
 
 
     const roundedTotal =
         Math.round(total);
 
 
-    /* Display result */
+    /* ---------- DISPLAY RESULT ---------- */
 
     carbonResult.textContent =
         roundedTotal.toLocaleString();
 
 
-    /* Result message */
+    /* ---------- RESULT MESSAGE ---------- */
 
     if (roundedTotal < 300) {
 
@@ -121,12 +197,10 @@ carbonForm.addEventListener("submit", function(event) {
     }
 
 
-    /* Show result */
+    /* ---------- SHOW RESULT ---------- */
 
     resultSection.classList.remove("hidden");
 
-
-    /* Scroll smoothly to result */
 
     setTimeout(function() {
 
