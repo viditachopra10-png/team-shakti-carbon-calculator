@@ -941,3 +941,34 @@ footer p {
     }
 
 }
+
+/* ---------- TWO QUESTIONS PER ROW ---------- */
+
+#carbonForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+#carbonForm .question-card {
+    margin-bottom: 0;
+}
+
+#carbonForm .calculate-area {
+    grid-column: 1 / -1;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    #carbonForm {
+        grid-template-columns: 1fr;
+    }
+
+    #carbonForm .calculate-area {
+        grid-column: 1;
+    }
+
+}
