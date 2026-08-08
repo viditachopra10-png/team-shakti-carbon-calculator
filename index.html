@@ -1,140 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Carbon Footprint Calculator | Team Shakti</title>
 
-<title>Team Shakti | Carbon Footprint Calculator</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div class="earth-container">
-    <div class="earth">🌍</div>
-</div>
-  
-<header>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="logo">🌱 Team Shakti</div>
 
-<h1>🌍 Team Shakti</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#calculator">Calculator</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
 
-<p>Turning Industrial CO₂ and Seawater into Sustainable Methanol</p>
 
-<p class="intro">
-Discover your Carbon Footprint and learn how your everyday choices can help create a cleaner future.
-</p>
+    <!-- HERO -->
+    <section id="home" class="hero">
 
-</header>
-  
-<div class="container">
+        <div class="hero-content">
 
-<h2>Are You Helping the Planet, or Hurting It?</h2>
+            <div class="hero-text">
 
-<p class="intro">
+                <span class="tag">🌍 DIGITAL CARBON FOOTPRINT CALCULATOR</span>
 
-Answer a few quick questions to discover your Carbon Footprint Score and learn how your choices impact our planet.
+                <h1>
+                    How Green Is
+                    <span>Your Lifestyle?</span>
+                </h1>
 
-</p>
+                <p>
+                    Answer a few simple questions and discover an
+                    estimate of your household's monthly carbon footprint.
+                </p>
 
-<form id="carbonForm" onkeydown="if(event.key === 'Enter') event.preventDefault();">
+                <a href="#calculator" class="hero-button">
+                    Calculate My Footprint ↓
+                </a>
 
-<label>Your Name</label>
-<input type="text" id="name" onkeydown="if(event.key === 'Enter') event.preventDefault();">
+            </div>
 
-<label>Your Age</label>
-<select id="age">
-<option>Under 12</option>
-<option>13-18</option>
-<option>Adult</option>
-</select>
 
-<label>How do you usually travel?</label>
-<select id="travel">
-<option>Walk</option>
-<option>Bicycle</option>
-<option>School Bus</option>
-<option>Metro</option>
-<option>Bike</option>
-<option>Car</option>
-</select>
+            <!-- EARTH -->
+            <div class="earth-container">
 
-<label>How many kilometers do you travel daily?</label>
-<select id="distance">
-<option>0-5 km</option>
-<option>5-15 km</option>
-<option>15-30 km</option>
-<option>More than 30 km</option>
-</select>
+                <div class="earth">
+                    <div class="earth-map"></div>
+                </div>
 
-<label>How many ACs are used in your home?</label>
-<select id="acs">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
-</select>
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
 
-<label>Average AC usage in a day</label>
-<select id="acusage">
-<option>0-2 hours</option>
-<option>2-5 hours</option>
-<option>5-8 hours</option>
-<option>8+ hours</option>
-</select>
+            </div>
 
-<label>Monthly Electricity Usage</label>
-<select id="electricity">
-<option>Less than 100 units</option>
-<option>100-250 units</option>
-<option>250-500 units</option>
-<option>More than 500 units</option>
-</select>
+        </div>
 
-<label>Diesel Generator Usage</label>
-<select id="generator">
-<option>Never</option>
-<option>Sometimes</option>
-<option>Frequently</option>
-<option>Daily</option>
-</select>
+    </section>
 
-<label>How often do you plant trees?</label>
-<select id="trees">
-<option>Frequently</option>
-<option>Sometimes</option>
-<option>Once a year</option>
-<option>Never</option>
-</select>
 
-<label>Would you support converting industrial CO₂ into clean fuel?</label>
-<select id="support">
-<option>Yes</option>
-<option>Maybe</option>
-<option>No</option>
-</select>
+    <!-- CALCULATOR -->
+    <main id="calculator" class="calculator-section">
 
-<button type="button" onclick="calculateScore()">
+        <div class="calculator-heading">
 
-Calculate My Carbon Footprint
+            <span class="small-title">🌿 LET'S FIND OUT</span>
 
-</button>
+            <h2>
+                Calculate Your Carbon Footprint
+            </h2>
 
-</form>
+            <p>
+                Tell us about your everyday habits.
+                There are no right or wrong answers!
+            </p>
 
-<div id="result"></div>
+        </div>
 
-</div>
 
-<script src="script.js"></script>
+        <!-- FORM -->
+        <form id="carbonForm">
+
+            <!-- QUESTION 1 -->
+            <div class="question-card">
+
+                <div class="question-number">01</div>
+
+                <h3>🚗 How do you usually travel?</h3>
+
+                <p class="question-help">
+                    Choose the option you use most often.
+                </p>
+
+                <select id="transport" required>
+
+                    <option value="" selected disabled>
+                        Select an option
+                    </option>
+
+                    <option value="20">
+                        Walk / Cycle
+                    </option>
+
+                    <option value="50">
+                        Public Transport
+                    </option>
+
+                    <option value="100">
+                        Car
+                    </option>
+
+                    <option value="150">
+                        SUV
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- QUESTION 2 -->
+            <div class="question-card">
+
+                <div class="question-number">02</div>
+
+                <h3>⚡ How much electricity does your household use?</h3>
+
+                <p class="question-help">
+                    Enter your approximate monthly electricity consumption.
+                </p>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="number"
+                        id="electricity"
+                        min="0"
+                        placeholder="Example: 250"
+                        required
+                    >
+
+                    <span>kWh / month</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION 3 -->
+            <div class="question-card">
+
+                <div class="question-number">03</div>
+
+                <h3>❄️ How many hours per day is AC used?</h3>
+
+                <p class="question-help">
+                    Give an approximate daily average.
+                </p>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="number"
+                        id="acHours"
+                        min="0"
+                        max="24"
+                        placeholder="Example: 5"
+                        required
+                    >
+
+                    <span>hours / day</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION 4 -->
+            <div class="question-card">
+
+                <div class="question-number">04</div>
+
+                <h3>🔌 How many hours per month is a generator used?</h3>
+
+                <p class="question-help">
+                    Enter an approximate number.
+                </p>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="number"
+                        id="generator"
+                        min="0"
+                        placeholder="Example: 10"
+                        required
+                    >
+
+                    <span>hours / month</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTON -->
+            <div class="calculate-area">
+
+                <button
+                    type="submit"
+                    id="calculateButton"
+                    class="calculate-button"
+                >
+                    CALCULATE MY CARBON FOOTPRINT 🌍
+                </button>
+
+                <p class="enter-hint">
+                    Press Enter or click the button
+                </p>
+
+            </div>
+
+        </form>
+
+
+        <!-- RESULT -->
+        <section id="result" class="result-card hidden">
+
+            <div class="result-earth">
+                🌍
+            </div>
+
+            <span class="small-title">
+                YOUR ESTIMATED RESULT
+            </span>
+
+            <h2>
+                Your Monthly Carbon Footprint
+            </h2>
+
+            <div class="result-number">
+
+                <span id="carbonResult">0</span>
+
+                <small>
+                    kg CO₂ / month
+                </small>
+
+            </div>
+
+            <p id="resultMessage"></p>
+
+            <button
+                type="button"
+                id="tryAgain"
+                class="secondary-button"
+            >
+                Calculate Again
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- WHY IT MATTERS -->
+    <section class="why-section">
+
+        <div class="section-heading">
+
+            <span class="small-title">🌱 WHY IT MATTERS</span>
+
+            <h2>Every Choice Leaves a Footprint</h2>
+
+            <p>
+                Understanding our carbon footprint is the first step
+                towards making more sustainable choices.
+            </p>
+
+        </div>
+
+
+        <div class="info-grid">
+
+            <div class="info-card">
+                <div class="info-icon">🚗</div>
+                <h3>Transportation</h3>
+                <p>
+                    The way we travel affects the amount of greenhouse
+                    gases released into the atmosphere.
+                </p>
+            </div>
+
+
+            <div class="info-card">
+                <div class="info-icon">⚡</div>
+                <h3>Energy</h3>
+                <p>
+                    Using electricity efficiently can help reduce
+                    our environmental impact.
+                </p>
+            </div>
+
+
+            <div class="info-card">
+                <div class="info-icon">🌍</div>
+                <h3>Our Planet</h3>
+                <p>
+                    Small changes made by many people can contribute
+                    to a cleaner and healthier planet.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="about-section">
+
+        <div class="about-box">
+
+            <span class="small-title">🌿 TEAM SHAKTI</span>
+
+            <h2>Technology For A Cleaner Tomorrow</h2>
+
+            <p>
+                Team Shakti is working towards creating awareness
+                about sustainability and finding innovative solutions
+                for a cleaner future.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div>
+            🌱 <strong>Team Shakti</strong>
+        </div>
+
+        <p>
+            Turning ideas into action for a sustainable future.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
 
 </body>
 </html>
