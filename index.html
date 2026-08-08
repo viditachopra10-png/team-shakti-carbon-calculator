@@ -88,127 +88,203 @@
         <!-- FORM -->
         <form id="carbonForm">
 
-            <!-- QUESTION 1 -->
-            <div class="question-card">
+   <!-- QUESTION 1 -->
+<div class="question-card">
 
-                <div class="question-number">01</div>
+    <div class="question-number">01</div>
 
-                <h3>🚗 How do you usually travel?</h3>
+    <h3>👤 What is your age?</h3>
 
-                <p class="question-help">
-                    Choose the option you use most often.
-                </p>
+    <p class="question-help">
+        Select your age group.
+    </p>
 
-                <select id="transport" required>
+    <select id="age" required>
+        <option value="" selected disabled>Select an option</option>
+        <option value="under12">Under 12</option>
+        <option value="13to18">13-18</option>
+        <option value="adult">Adult</option>
+    </select>
 
-                    <option value="" selected disabled>
-                        Select an option
-                    </option>
-
-                    <option value="20">
-                        Walk / Cycle
-                    </option>
-
-                    <option value="50">
-                        Public Transport
-                    </option>
-
-                    <option value="100">
-                        Car
-                    </option>
-
-                    <option value="150">
-                        SUV
-                    </option>
-
-                </select>
-
-            </div>
+</div>
 
 
-            <!-- QUESTION 2 -->
-            <div class="question-card">
+<!-- QUESTION 2 -->
+<div class="question-card">
 
-                <div class="question-number">02</div>
+    <div class="question-number">02</div>
 
-                <h3>⚡ How much electricity does your household use?</h3>
+    <h3>🚗 How do you usually travel?</h3>
 
-                <p class="question-help">
-                    Enter your approximate monthly electricity consumption.
-                </p>
+    <p class="question-help">
+        Choose the mode of transport you use most often.
+    </p>
 
-                <div class="input-wrapper">
+    <select id="transport" required>
+        <option value="" selected disabled>Select an option</option>
+        <option value="walk">Walk</option>
+        <option value="bicycle">Bicycle</option>
+        <option value="schoolBus">School Bus</option>
+        <option value="car">Car</option>
+        <option value="bike">Bike</option>
+        <option value="metro">Metro</option>
+    </select>
 
-                    <input
-                        type="number"
-                        id="electricity"
-                        min="0"
-                        placeholder="Example: 250"
-                        required
-                    >
-
-                    <span>kWh / month</span>
-
-                </div>
-
-            </div>
+</div>
 
 
-            <!-- QUESTION 3 -->
-            <div class="question-card">
+<!-- QUESTION 3 -->
+<div class="question-card">
 
-                <div class="question-number">03</div>
+    <div class="question-number">03</div>
 
-                <h3>❄️ How many hours per day is AC used?</h3>
+    <h3>🛣️ How many kilometres do you travel daily?</h3>
 
-                <p class="question-help">
-                    Give an approximate daily average.
-                </p>
+    <p class="question-help">
+        Select your approximate daily travel distance.
+    </p>
 
-                <div class="input-wrapper">
+    <select id="distance" required>
+        <option value="" selected disabled>Select an option</option>
+        <option value="0to5">0-5 km</option>
+        <option value="5to15">5-15 km</option>
+        <option value="15to30">15-30 km</option>
+        <option value="more30">More than 30 km</option>
+    </select>
 
-                    <input
-                        type="number"
-                        id="acHours"
-                        min="0"
-                        max="24"
-                        placeholder="Example: 5"
-                        required
-                    >
-
-                    <span>hours / day</span>
-
-                </div>
-
-            </div>
+</div>
 
 
-            <!-- QUESTION 4 -->
-            <div class="question-card">
+<!-- QUESTION 4 -->
+<div class="question-card">
 
-                <div class="question-number">04</div>
+    <div class="question-number">04</div>
 
-                <h3>🔌 How many hours per month is a generator used?</h3>
+    <h3>❄️ How many ACs are used in your home?</h3>
 
-                <p class="question-help">
-                    Enter an approximate number.
-                </p>
+    <p class="question-help">
+        Select the number of air conditioners.
+    </p>
 
-                <div class="input-wrapper">
+    <select id="acCount" required>
+        <option value="" selected disabled>Select an option</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
 
-                    <input
-                        type="number"
-                        id="generator"
-                        min="0"
-                        placeholder="Example: 10"
-                        required
-                    >
+</div>
 
-                    <span>hours / month</span>
 
-                </div>
+<!-- QUESTION 5 -->
+<div class="question-card">
 
-            </div>
+    <div class="question-number">05</div>
+
+    <h3>⏱️ Average AC usage in a day</h3>
+
+    <p class="question-help">
+        Select the approximate daily usage.
+    </p>
+
+    <select id="acHours" required>
+        <option value="" selected disabled>Select an option</option>
+        <option value="2">0-2 hours</option>
+        <option value="5">2-5 hours</option>
+        <option value="8">5-8 hours</option>
+        <option value="9">8+ hours</option>
+    </select>
+
+</div>
+
+
+<!-- QUESTION 6 -->
+<div class="question-card">
+
+    <div class="question-number">06</div>
+
+    <h3>⚡ Approximately how much electricity does your family use in a month?</h3>
+
+    <p class="question-help">
+        Select the approximate monthly consumption.
+    </p>
+
+    <select id="electricity" required>
+        <option value="" selected disabled>Select an option</option>
+        <option value="100">Less than 100 units</option>
+        <option value="200">100-250 units</option>
+        <option value="350">250-500 units</option>
+        <option value="600">More than 500 units</option>
+    </select>
+
+</div>
+
+
+<!-- QUESTION 7 -->
+<div class="question-card">
+
+    <div class="question-number">07</div>
+
+    <h3>🔌 Does your home or apartment use a diesel generator during power cuts?</h3>
+
+    <p class="question-help">
+        Select how frequently it is used.
+    </p>
+
+    <select id="generator" required>
+        <option value="" selected disabled>Select an option</option>
+        <option value="0">Never</option>
+        <option value="1">Sometimes</option>
+        <option value="2">Frequently</option>
+        <option value="3">Daily</option>
+    </select>
+
+</div>
+
+
+<!-- QUESTION 8 -->
+<div class="question-card">
+
+    <div class="question-number">08</div>
+
+    <h3>🌱 How often do you plant trees or participate in environmental activities?</h3>
+
+    <p class="question-help">
+        Choose the option that best describes you.
+    </p>
+
+    <select id="environment" required>
+        <option value="" selected disabled>Select an option</option>
+        <option value="0">Never</option>
+        <option value="1">Once a year</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Frequently</option>
+    </select>
+
+</div>
+
+
+<!-- QUESTION 9 -->
+<div class="question-card">
+
+    <div class="question-number">09</div>
+
+    <h3>🏭 Would you support converting industrial CO₂ into clean fuel instead of releasing it into the atmosphere?</h3>
+
+    <p class="question-help">
+        Tell us what you think.
+    </p>
+
+    <select id="support" required>
+        <option value="" selected disabled>Select an option</option>
+        <option value="yes">Yes</option>
+        <option value="maybe">Maybe</option>
+        <option value="no">No</option>
+    </select>
+
+</div>
 
 
             <!-- BUTTON -->
