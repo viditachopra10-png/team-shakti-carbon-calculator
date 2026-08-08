@@ -1,121 +1,156 @@
-function calculateScore(){
+/* =================================
+   TEAM SHAKTI
+   CARBON FOOTPRINT CALCULATOR
+================================ */
 
-let score = 0;
 
-const name = document.getElementById("name").value;
+/* ---------- GET ELEMENTS ---------- */
 
-const age = document.getElementById("age").value;
-const travel = document.getElementById("travel").value;
-const distance = document.getElementById("distance").value;
-const acs = document.getElementById("acs").value;
-const acusage = document.getElementById("acusage").value;
-const electricity = document.getElementById("electricity").value;
-const generator = document.getElementById("generator").value;
-const trees = document.getElementById("trees").value;
-const support = document.getElementById("support").value;
+const carbonForm = document.getElementById("carbonForm");
 
-/* AGE */
+const resultSection = document.getElementById("result");
 
-if(age=="Under 12") score+=5;
-if(age=="13-18") score+=8;
-if(age=="Adult") score+=10;
+const carbonResult = document.getElementById("carbonResult");
 
-/* TRAVEL */
+const resultMessage = document.getElementById("resultMessage");
 
-if(travel=="Walk") score+=0;
-if(travel=="Bicycle") score+=2;
-if(travel=="School Bus") score+=5;
-if(travel=="Metro") score+=6;
-if(travel=="Bike") score+=15;
-if(travel=="Car") score+=20;
+const tryAgainButton = document.getElementById("tryAgain");
 
-/* DISTANCE */
 
-if(distance=="0-5 km") score+=2;
-if(distance=="5-15 km") score+=8;
-if(distance=="15-30 km") score+=15;
-if(distance=="More than 30 km") score+=25;
+/* ---------- CALCULATOR ---------- */
 
-/* ACS */
+carbonForm.addEventListener("submit", function(event) {
 
-score += (parseInt(acs)-1)*5+5;
+    /*
+       IMPORTANT:
+       Prevents the page from refreshing when
+       the user presses ENTER.
+    */
 
-/* AC USAGE */
+    event.preventDefault();
 
-if(acusage=="0-2 hours") score+=2;
-if(acusage=="2-5 hours") score+=8;
-if(acusage=="5-8 hours") score+=15;
-if(acusage=="8+ hours") score+=25;
 
-/* ELECTRICITY */
+    /* Get values */
 
-if(electricity=="Less than 100 units") score+=5;
-if(electricity=="100-250 units") score+=10;
-if(electricity=="250-500 units") score+=20;
-if(electricity=="More than 500 units") score+=30;
+    const transport =
+        Number(document.getElementById("transport").value);
 
-/* GENERATOR */
+    const electricity =
+        Number(document.getElementById("electricity").value);
 
-if(generator=="Never") score+=0;
-if(generator=="Sometimes") score+=10;
-if(generator=="Frequently") score+=20;
-if(generator=="Daily") score+=35;
+    const acHours =
+        Number(document.getElementById("acHours").value);
 
-/* TREES */
+    const generator =
+        Number(document.getElementById("generator").value);
 
-if(trees=="Frequently") score+=0;
-if(trees=="Sometimes") score+=5;
-if(trees=="Once a year") score+=10;
-if(trees=="Never") score+=20;
 
-/* SUPPORT */
+    /* Basic validation */
 
-if(support=="Maybe") score+=5;
-if(support=="No") score+=10;
+    if (
+        document.getElementById("transport").value === "" ||
+        electricity < 0 ||
+        acHours < 0 ||
+        generator < 0
+    ) {
 
-let level="";
-let color="";
-let advice="";
+        alert("Please fill in all the questions.");
 
-if(score<=40){
-level="🌿 Low";
-color="#2ecc71";
-advice="Excellent! Keep making eco-friendly choices.";
-}
-else if(score<=70){
-level="🟡 Moderate";
-color="#f1c40f";
-advice="You're doing well! Small changes can reduce your footprint further.";
-}
-else if(score<=100){
-level="🟠 High";
-color="#e67e22";
-advice="Consider reducing AC usage, travelling sustainably, and saving electricity.";
-}
-else{
-level="🔴 Very High";
-color="#e74c3c";
-advice="Your carbon footprint is high. Small daily changes can make a big difference.";
-}
+        return;
 
-document.getElementById("result").innerHTML=
-`
-<h2>Hello ${name || "Friend"}! 👋</h2>
+    }
 
-<h1 style="color:${color};">${score} Points</h1>
 
-<h2>${level}</h2>
+    /*
+       Approximate calculation.
 
-<p>${advice}</p>
+       These are simplified educational estimates,
+       not an official household emissions calculation.
+    */
 
-<hr style="margin:20px 0;">
+    const electricityEmission =
+        electricity * 0.7;
 
-<h3>💚 Team Shakti's Mission</h3>
 
-<p>
-Our project converts Industrial CO₂ and Seawater into Sustainable Methanol,
-helping reduce pollution while creating cleaner fuel for tomorrow.
-</p>
-`;
+    const acEmission =
+        acHours * 30 * 1.2;
 
-}
+
+    const generatorEmission =
+        generator * 2.5;
+
+
+    const total =
+        transport +
+        electricityEmission +
+        acEmission +
+        generatorEmission;
+
+
+    const roundedTotal =
+        Math.round(total);
+
+
+    /* Display result */
+
+    carbonResult.textContent =
+        roundedTotal.toLocaleString();
+
+
+    /* Result message */
+
+    if (roundedTotal < 300) {
+
+        resultMessage.textContent =
+            "Amazing! 🌱 Your estimated footprint is relatively low. Keep making sustainable choices!";
+
+    }
+
+    else if (roundedTotal < 700) {
+
+        resultMessage.textContent =
+            "You're on the right track! 🌿 A few more sustainable choices could reduce your footprint even further.";
+
+    }
+
+    else {
+
+        resultMessage.textContent =
+            "There is room to reduce your footprint. 🌍 Small changes in transportation and energy use can make a difference.";
+
+    }
+
+
+    /* Show result */
+
+    resultSection.classList.remove("hidden");
+
+
+    /* Scroll smoothly to result */
+
+    setTimeout(function() {
+
+        resultSection.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }, 100);
+
+});
+
+
+/* ---------- TRY AGAIN ---------- */
+
+tryAgainButton.addEventListener("click", function() {
+
+    resultSection.classList.add("hidden");
+
+    carbonForm.reset();
+
+    window.scrollTo({
+        top: document.getElementById("calculator").offsetTop - 50,
+        behavior: "smooth"
+    });
+
+});
