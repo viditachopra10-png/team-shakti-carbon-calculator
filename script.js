@@ -1,7 +1,10 @@
-/* =================================
+/* =========================================
    TEAM SHAKTI
-   CARBON FOOTPRINT CALCULATOR
-================================ */
+   DIGITAL CARBON FOOTPRINT CALCULATOR
+========================================= */
+
+
+/* ---------- GET FORM ELEMENTS ---------- */
 
 const carbonForm = document.getElementById("carbonForm");
 
@@ -13,21 +16,26 @@ const resultMessage = document.getElementById("resultMessage");
 
 const tryAgainButton = document.getElementById("tryAgain");
 
+const userName = document.getElementById("userName");
 
-/* ---------- CALCULATOR ---------- */
 
-carbonForm.addEventListener("submit", function(event) {
+/* ---------- CALCULATE CARBON FOOTPRINT ---------- */
+
+carbonForm.addEventListener("submit", function (event) {
 
     /*
-       IMPORTANT:
-       Prevents the page from refreshing when
-       the user presses ENTER.
+       VERY IMPORTANT:
+       This prevents Enter from refreshing
+       the page instead of calculating.
     */
 
     event.preventDefault();
 
 
     /* ---------- GET ANSWERS ---------- */
+
+    const name =
+        document.getElementById("name").value.trim();
 
     const age =
         document.getElementById("age").value;
@@ -60,14 +68,15 @@ carbonForm.addEventListener("submit", function(event) {
     /* ---------- VALIDATION ---------- */
 
     if (
+        name === "" ||
         age === "" ||
         transport === "" ||
         distance === "" ||
-        acCount === 0 ||
-        acHours === 0 ||
-        electricity === 0 ||
-        generator === 0 && generator !== 0 ||
-        environment === 0 && environment !== 0 ||
+        !document.getElementById("acCount").value ||
+        !document.getElementById("acHours").value ||
+        !document.getElementById("electricity").value ||
+        !document.getElementById("generator").value ||
+        !document.getElementById("environment").value ||
         support === ""
     ) {
 
@@ -77,7 +86,7 @@ carbonForm.addEventListener("submit", function(event) {
     }
 
 
-    /* ---------- TRANSPORT SCORE ---------- */
+    /* ---------- TRANSPORT EMISSIONS ---------- */
 
     const transportScores = {
 
@@ -97,10 +106,10 @@ carbonForm.addEventListener("submit", function(event) {
 
 
     const transportScore =
-        transportScores[transport];
+        transportScores[transport] || 0;
 
 
-    /* ---------- DISTANCE SCORE ---------- */
+    /* ---------- DAILY DISTANCE ---------- */
 
     const distanceScores = {
 
@@ -116,7 +125,7 @@ carbonForm.addEventListener("submit", function(event) {
 
 
     const distanceScore =
-        distanceScores[distance];
+        distanceScores[distance] || 0;
 
 
     /* ---------- ELECTRICITY ---------- */
@@ -125,19 +134,19 @@ carbonForm.addEventListener("submit", function(event) {
         electricity * 0.7;
 
 
-    /* ---------- AC ---------- */
+    /* ---------- AIR CONDITIONING ---------- */
 
     const acEmission =
         acCount * acHours * 30 * 1.2;
 
 
-    /* ---------- GENERATOR ---------- */
+    /* ---------- DIESEL GENERATOR ---------- */
 
     const generatorEmission =
         generator * 20;
 
 
-    /* ---------- ENVIRONMENTAL ACTION ---------- */
+    /* ---------- ENVIRONMENTAL ACTIVITIES ---------- */
 
     const environmentalReduction =
         environment * 10;
@@ -154,20 +163,28 @@ carbonForm.addEventListener("submit", function(event) {
         environmentalReduction;
 
 
-    /*
-       Keep result positive.
-    */
+    /* ---------- KEEP RESULT POSITIVE ---------- */
 
     if (total < 0) {
+
         total = 0;
+
     }
 
+
+    /* ---------- ROUND RESULT ---------- */
 
     const roundedTotal =
         Math.round(total);
 
 
-    /* ---------- DISPLAY RESULT ---------- */
+    /* ---------- SHOW USER'S NAME ---------- */
+
+    userName.textContent =
+        name + "'s";
+
+
+    /* ---------- SHOW CARBON RESULT ---------- */
 
     carbonResult.textContent =
         roundedTotal.toLocaleString();
@@ -202,11 +219,16 @@ carbonForm.addEventListener("submit", function(event) {
     resultSection.classList.remove("hidden");
 
 
-    setTimeout(function() {
+    /* ---------- SCROLL TO RESULT ---------- */
+
+    setTimeout(function () {
 
         resultSection.scrollIntoView({
+
             behavior: "smooth",
+
             block: "center"
+
         });
 
     }, 100);
@@ -214,17 +236,30 @@ carbonForm.addEventListener("submit", function(event) {
 });
 
 
-/* ---------- TRY AGAIN ---------- */
+/* ---------- TRY AGAIN BUTTON ---------- */
 
-tryAgainButton.addEventListener("click", function() {
+tryAgainButton.addEventListener("click", function () {
+
+
+    /* Hide result */
 
     resultSection.classList.add("hidden");
 
+
+    /* Reset all questions */
+
     carbonForm.reset();
 
+
+    /* Scroll back to calculator */
+
     window.scrollTo({
-        top: document.getElementById("calculator").offsetTop - 50,
+
+        top:
+            document.getElementById("calculator").offsetTop - 50,
+
         behavior: "smooth"
+
     });
 
 });
