@@ -1,289 +1,610 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Digital Carbon Footprint Calculator | Team Shakti</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <!-- HEADER -->
-    <header class="navbar">
-        <div class="logo">Team Shakti</div>
 
-       
+    <!-- HEADER -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            Team Shakti
+        </div>
+
     </header>
 
 
+
     <!-- HERO -->
+
     <section id="home" class="hero">
 
         <div class="hero-content">
 
+
             <div class="hero-text">
 
-                <span class="tag"> DIGITAL CARBON FOOTPRINT CALCULATOR</span>
+                <span class="tag">
+                    DIGITAL CARBON FOOTPRINT CALCULATOR
+                </span>
+
 
                 <h1>
+
                     How Green Is
                     <span>Your Lifestyle?</span>
+
                 </h1>
 
+
                 <p>
+
                     Answer a few simple questions and discover an
                     estimate of your household's monthly carbon footprint.
+
                 </p>
 
+
                 <a href="#calculator" class="hero-button">
+
                     Calculate My Footprint ↓
+
                 </a>
 
             </div>
 
 
+
             <!-- EARTH -->
+
             <div class="earth-container">
 
                 <div class="earth">
+
                     <div class="earth-map"></div>
+
                 </div>
 
+
                 <div class="orbit orbit-one"></div>
+
                 <div class="orbit orbit-two"></div>
 
             </div>
+
 
         </div>
 
     </section>
 
 
+
     <!-- CALCULATOR -->
+
     <main id="calculator" class="calculator-section">
+
 
         <div class="calculator-heading">
 
-            <span class="small-title">🌿 LET'S FIND OUT</span>
+            <span class="small-title">
+                LET'S FIND OUT
+            </span>
+
 
             <h2>
                 Calculate Your Carbon Footprint
             </h2>
 
+
             <p>
+
                 Tell us about your everyday habits.
                 There are no right or wrong answers!
+
             </p>
 
         </div>
 
 
+
         <!-- FORM -->
+
         <form id="carbonForm">
 
-   <!-- QUESTION 1 -->
-<div class="question-card">
 
-    <div class="question-number">01</div>
+            <!-- QUESTION 1 : NAME -->
 
-    <h3>👤 What is your age?</h3>
+            <div class="question-card">
 
-    <p class="question-help">
-        Select your age group.
-    </p>
-
-    <select id="age" required>
-        <option value="" selected disabled>Select an option</option>
-        <option value="under12">Under 12</option>
-        <option value="13to18">13-18</option>
-        <option value="adult">Adult</option>
-    </select>
-
-</div>
+                <div class="question-number">
+                    01
+                </div>
 
 
-<!-- QUESTION 2 -->
-<div class="question-card">
-
-    <div class="question-number">02</div>
-
-    <h3>🚗 How do you usually travel?</h3>
-
-    <p class="question-help">
-        Choose the mode of transport you use most often.
-    </p>
-
-    <select id="transport" required>
-        <option value="" selected disabled>Select an option</option>
-        <option value="walk">Walk</option>
-        <option value="bicycle">Bicycle</option>
-        <option value="schoolBus">School Bus</option>
-        <option value="car">Car</option>
-        <option value="bike">Bike</option>
-        <option value="metro">Metro</option>
-    </select>
-
-</div>
+                <h3>
+                    What is your name?
+                </h3>
 
 
-<!-- QUESTION 3 -->
-<div class="question-card">
+                <p class="question-help">
 
-    <div class="question-number">03</div>
+                    Enter your name.
 
-    <h3> How many kilometres do you travel daily?</h3>
-
-    <p class="question-help">
-        Select your approximate daily travel distance.
-    </p>
-
-    <select id="distance" required>
-        <option value="" selected disabled>Select an option</option>
-        <option value="0to5">0-5 km</option>
-        <option value="5to15">5-15 km</option>
-        <option value="15to30">15-30 km</option>
-        <option value="more30">More than 30 km</option>
-    </select>
-
-</div>
+                </p>
 
 
-<!-- QUESTION 4 -->
-<div class="question-card">
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required
+                >
 
-    <div class="question-number">04</div>
-
-    <h3>❄️ How many ACs are used in your home?</h3>
-
-    <p class="question-help">
-        Select the number of air conditioners.
-    </p>
-
-    <select id="acCount" required>
-        <option value="" selected disabled>Select an option</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select>
-
-</div>
+            </div>
 
 
-<!-- QUESTION 5 -->
-<div class="question-card">
 
-    <div class="question-number">05</div>
+            <!-- QUESTION 2 : AGE -->
 
-    <h3>⏱️ Average AC usage in a day</h3>
+            <div class="question-card">
 
-    <p class="question-help">
-        Select the approximate daily usage.
-    </p>
-
-    <select id="acHours" required>
-        <option value="" selected disabled>Select an option</option>
-        <option value="2">0-2 hours</option>
-        <option value="5">2-5 hours</option>
-        <option value="8">5-8 hours</option>
-        <option value="9">8+ hours</option>
-    </select>
-
-</div>
+                <div class="question-number">
+                    02
+                </div>
 
 
-<!-- QUESTION 6 -->
-<div class="question-card">
-
-    <div class="question-number">06</div>
-
-    <h3>⚡ Approximately how much electricity does your family use in a month?</h3>
-
-    <p class="question-help">
-        Select the approximate monthly consumption.
-    </p>
-
-    <select id="electricity" required>
-        <option value="" selected disabled>Select an option</option>
-        <option value="100">Less than 100 units</option>
-        <option value="200">100-250 units</option>
-        <option value="350">250-500 units</option>
-        <option value="600">More than 500 units</option>
-    </select>
-
-</div>
+                <h3>
+                    What is your age?
+                </h3>
 
 
-<!-- QUESTION 7 -->
-<div class="question-card">
+                <p class="question-help">
 
-    <div class="question-number">07</div>
+                    Select your age group.
 
-    <h3>🔌 Does your home or apartment use a diesel generator during power cuts?</h3>
-
-    <p class="question-help">
-        Select how frequently it is used.
-    </p>
-
-    <select id="generator" required>
-        <option value="" selected disabled>Select an option</option>
-        <option value="0">Never</option>
-        <option value="1">Sometimes</option>
-        <option value="2">Frequently</option>
-        <option value="3">Daily</option>
-    </select>
-
-</div>
+                </p>
 
 
-<!-- QUESTION 8 -->
-<div class="question-card">
+                <select id="age" required>
 
-    <div class="question-number">08</div>
+                    <option value="" selected disabled>
+                        Select an option
+                    </option>
 
-    <h3>🌱 How often do you plant trees or participate in environmental activities?</h3>
+                    <option value="under12">
+                        Under 12
+                    </option>
 
-    <p class="question-help">
-        Choose the option that best describes you.
-    </p>
+                    <option value="13to18">
+                        13-18
+                    </option>
 
-    <select id="environment" required>
-        <option value="" selected disabled>Select an option</option>
-        <option value="0">Never</option>
-        <option value="1">Once a year</option>
-        <option value="2">Sometimes</option>
-        <option value="3">Frequently</option>
-    </select>
+                    <option value="adult">
+                        Adult
+                    </option>
 
-</div>
+                </select>
 
-
-<!-- QUESTION 9 -->
-<div class="question-card">
-
-    <div class="question-number">09</div>
-
-    <h3>🏭 Would you support converting industrial CO₂ into clean fuel instead of releasing it into the atmosphere?</h3>
-
-    <p class="question-help">
-        Tell us what you think.
-    </p>
-
-    <select id="support" required>
-        <option value="" selected disabled>Select an option</option>
-        <option value="yes">Yes</option>
-        <option value="maybe">Maybe</option>
-        <option value="no">No</option>
-    </select>
-
-</div>
+            </div>
 
 
-            <!-- BUTTON -->
+
+            <!-- QUESTION 3 : TRANSPORT -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    03
+                </div>
+
+
+                <h3>
+                    How do you usually travel?
+                </h3>
+
+
+                <p class="question-help">
+
+                    Choose the mode of transport you use most often.
+
+                </p>
+
+
+                <select id="transport" required>
+
+                    <option value="" selected disabled>
+                        Select an option
+                    </option>
+
+                    <option value="walk">
+                        Walk
+                    </option>
+
+                    <option value="bicycle">
+                        Bicycle
+                    </option>
+
+                    <option value="schoolBus">
+                        School Bus
+                    </option>
+
+                    <option value="car">
+                        Car
+                    </option>
+
+                    <option value="bike">
+                        Bike
+                    </option>
+
+                    <option value="metro">
+                        Metro
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- QUESTION 4 : DISTANCE -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    04
+                </div>
+
+
+                <h3>
+                    How many kilometres do you travel daily?
+                </h3>
+
+
+                <p class="question-help">
+
+                    Select your approximate daily travel distance.
+
+                </p>
+
+
+                <select id="distance" required>
+
+                    <option value="" selected disabled>
+                        Select an option
+                    </option>
+
+                    <option value="0to5">
+                        0-5 km
+                    </option>
+
+                    <option value="5to15">
+                        5-15 km
+                    </option>
+
+                    <option value="15to30">
+                        15-30 km
+                    </option>
+
+                    <option value="more30">
+                        More than 30 km
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- QUESTION 5 : AC COUNT -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    05
+                </div>
+
+
+                <h3>
+                    How many ACs are used in your home?
+                </h3>
+
+
+                <p class="question-help">
+
+                    Select the number of air conditioners.
+
+                </p>
+
+
+                <select id="acCount" required>
+
+                    <option value="" selected disabled>
+                        Select an option
+                    </option>
+
+                    <option value="1">
+                        1
+                    </option>
+
+                    <option value="2">
+                        2
+                    </option>
+
+                    <option value="3">
+                        3
+                    </option>
+
+                    <option value="4">
+                        4
+                    </option>
+
+                    <option value="5">
+                        5
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- QUESTION 6 : AC HOURS -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    06
+                </div>
+
+
+                <h3>
+                    Average AC usage in a day
+                </h3>
+
+
+                <p class="question-help">
+
+                    Select the approximate daily usage.
+
+                </p>
+
+
+                <select id="acHours" required>
+
+                    <option value="" selected disabled>
+                        Select an option
+                    </option>
+
+                    <option value="2">
+                        0-2 hours
+                    </option>
+
+                    <option value="5">
+                        2-5 hours
+                    </option>
+
+                    <option value="8">
+                        5-8 hours
+                    </option>
+
+                    <option value="9">
+                        8+ hours
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- QUESTION 7 : ELECTRICITY -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    07
+                </div>
+
+
+                <h3>
+                    Approximately how much electricity does your family use in a month?
+                </h3>
+
+
+                <p class="question-help">
+
+                    Select the approximate monthly consumption.
+
+                </p>
+
+
+                <select id="electricity" required>
+
+                    <option value="" selected disabled>
+                        Select an option
+                    </option>
+
+                    <option value="100">
+                        Less than 100 units
+                    </option>
+
+                    <option value="200">
+                        100-250 units
+                    </option>
+
+                    <option value="350">
+                        250-500 units
+                    </option>
+
+                    <option value="600">
+                        More than 500 units
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- QUESTION 8 : GENERATOR -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    08
+                </div>
+
+
+                <h3>
+                    Does your home or apartment use a diesel generator during power cuts?
+                </h3>
+
+
+                <p class="question-help">
+
+                    Select how frequently it is used.
+
+                </p>
+
+
+                <select id="generator" required>
+
+                    <option value="" selected disabled>
+                        Select an option
+                    </option>
+
+                    <option value="0">
+                        Never
+                    </option>
+
+                    <option value="1">
+                        Sometimes
+                    </option>
+
+                    <option value="2">
+                        Frequently
+                    </option>
+
+                    <option value="3">
+                        Daily
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- QUESTION 9 : ENVIRONMENT -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    09
+                </div>
+
+
+                <h3>
+                    How often do you plant trees or participate in environmental activities?
+                </h3>
+
+
+                <p class="question-help">
+
+                    Choose the option that best describes you.
+
+                </p>
+
+
+                <select id="environment" required>
+
+                    <option value="" selected disabled>
+                        Select an option
+                    </option>
+
+                    <option value="0">
+                        Never
+                    </option>
+
+                    <option value="1">
+                        Once a year
+                    </option>
+
+                    <option value="2">
+                        Sometimes
+                    </option>
+
+                    <option value="3">
+                        Frequently
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- QUESTION 10 : CO2 SUPPORT -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    10
+                </div>
+
+
+                <h3>
+                    Would you support converting industrial CO₂ into clean fuel instead of releasing it into the atmosphere?
+                </h3>
+
+
+                <p class="question-help">
+
+                    Tell us what you think.
+
+                </p>
+
+
+                <select id="support" required>
+
+                    <option value="" selected disabled>
+                        Select an option
+                    </option>
+
+                    <option value="yes">
+                        Yes
+                    </option>
+
+                    <option value="maybe">
+                        Maybe
+                    </option>
+
+                    <option value="no">
+                        No
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- CALCULATE BUTTON -->
+
             <div class="calculate-area">
 
                 <button
@@ -291,36 +612,57 @@
                     id="calculateButton"
                     class="calculate-button"
                 >
+
                     CALCULATE MY CARBON FOOTPRINT 🌍
+
                 </button>
 
+
                 <p class="enter-hint">
+
                     Press Enter or click the button
+
                 </p>
 
             </div>
 
+
         </form>
 
 
+
         <!-- RESULT -->
+
         <section id="result" class="result-card hidden">
+
 
             <div class="result-earth">
                 🌍
             </div>
 
+
             <span class="small-title">
                 YOUR ESTIMATED RESULT
             </span>
 
+
             <h2>
-                Your Monthly Carbon Footprint
+
+                <span id="userName">
+                    Your
+                </span>
+
+                Monthly Carbon Footprint
+
             </h2>
+
 
             <div class="result-number">
 
-                <span id="carbonResult">0</span>
+                <span id="carbonResult">
+                    0
+                </span>
+
 
                 <small>
                     kg CO₂ / month
@@ -328,109 +670,194 @@
 
             </div>
 
+
             <p id="resultMessage"></p>
+
 
             <button
                 type="button"
                 id="tryAgain"
                 class="secondary-button"
             >
+
                 Calculate Again
+
             </button>
 
+
         </section>
+
 
     </main>
 
 
+
     <!-- WHY IT MATTERS -->
+
     <section class="why-section">
+
 
         <div class="section-heading">
 
-            <span class="small-title">🌱 WHY IT MATTERS</span>
+            <span class="small-title">
+                WHY IT MATTERS
+            </span>
 
-            <h2>Every Choice Leaves a Footprint</h2>
+
+            <h2>
+                Every Choice Leaves a Footprint
+            </h2>
+
 
             <p>
+
                 Understanding our carbon footprint is the first step
                 towards making more sustainable choices.
+
             </p>
 
         </div>
+
 
 
         <div class="info-grid">
 
+
             <div class="info-card">
-                <div class="info-icon">🚗</div>
-                <h3>Transportation</h3>
+
+                <div class="info-icon">
+                    🚗
+                </div>
+
+
+                <h3>
+                    Transportation
+                </h3>
+
+
                 <p>
+
                     The way we travel affects the amount of greenhouse
                     gases released into the atmosphere.
+
                 </p>
+
             </div>
 
 
+
             <div class="info-card">
-                <div class="info-icon">⚡</div>
-                <h3>Energy</h3>
+
+                <div class="info-icon">
+                    ⚡
+                </div>
+
+
+                <h3>
+                    Energy
+                </h3>
+
+
                 <p>
+
                     Using electricity efficiently can help reduce
                     our environmental impact.
+
                 </p>
+
             </div>
+
 
 
             <div class="info-card">
-                <div class="info-icon">🌍</div>
-                <h3>Our Planet</h3>
+
+                <div class="info-icon">
+                    🌍
+                </div>
+
+
+                <h3>
+                    Our Planet
+                </h3>
+
+
                 <p>
+
                     Small changes made by many people can contribute
                     to a cleaner and healthier planet.
+
                 </p>
+
             </div>
 
+
         </div>
+
 
     </section>
 
 
+
     <!-- ABOUT -->
+
     <section id="about" class="about-section">
+
 
         <div class="about-box">
 
-            <span class="small-title">🌿 TEAM SHAKTI</span>
+            <span class="small-title">
+                TEAM SHAKTI
+            </span>
 
-            <h2>Technology For A Cleaner Tomorrow</h2>
+
+            <h2>
+                Technology For A Cleaner Tomorrow
+            </h2>
+
 
             <p>
+
                 Team Shakti is working towards creating awareness
                 about sustainability and finding innovative solutions
                 for a cleaner future.
+
             </p>
 
         </div>
 
+
     </section>
 
 
+
     <!-- FOOTER -->
+
     <footer>
 
+
         <div>
-             <strong>Team Shakti</strong>
+
+            <strong>
+                Team Shakti
+            </strong>
+
         </div>
 
+
         <p>
+
             Turning ideas into action for a sustainable future.
+
         </p>
+
 
     </footer>
 
 
+
     <script src="script.js"></script>
 
+
 </body>
+
 </html>
